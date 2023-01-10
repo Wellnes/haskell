@@ -30,7 +30,31 @@ compareLastNames name1 name2 = if lastName1 > lastName2
         firstName1 = fst name1
         firstName2 = fst name2
 
-smatrfoo n = if 3 < 4
-             then 45
-	     else
-  where lastname = 23 sdsa = dsd
+--addressLeter name location = nameText ++ " - " ++ location
+--  where nameText = (fst name) ++ " " ++ (snd name)
+
+sfOffice name = 
+    if lastName < "L"
+    then nameText ++ " - " ++ "P.O. box 1234" ++ officePartName ++ "94111" 
+    else nameText ++ " - " ++ "P.O. box 1010" ++ officePartName ++ "94109" 
+  where lastName = snd name
+        nameText = (fst name) ++ " " ++ lastName
+        officePartName = " San Francisco, California State, "
+
+nyOffice name = nameText ++ ": " ++ "P.O. box 789, New York, State of New York, 10013"
+  where nameText = (fst name) ++ " " ++ (snd name)
+
+renoOffice name = nameText ++ " - " ++ "P.O. box 456, Reno, State of Nevada, 89523"
+  where nameText = snd name
+
+getLocationFunction location = 
+  case location of
+    "ny" -> nyOffice
+    "sf" -> sfOffice
+    "reno" -> renoOffice
+    _ -> (\name -> (fst name) ++ " " ++ (snd name))
+
+addressLetter name location = locationFunction name
+  where locationFunction = getLocationFunction location
+
+araDress name location = getLocationFunction location name
