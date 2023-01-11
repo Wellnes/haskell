@@ -30,6 +30,12 @@ compareLastNames name1 name2 = if lastName1 > lastName2
         firstName1 = fst name1
         firstName2 = fst name2
 
+compareAllNames name1 name2 = 
+    if result == EQ
+    then compare (fst name1) (fst name2)
+    else result
+  where result = compare (snd name1) (snd name2)
+
 --addressLeter name location = nameText ++ " - " ++ location
 --  where nameText = (fst name) ++ " " ++ (snd name)
 
@@ -58,3 +64,7 @@ addressLetter name location = locationFunction name
   where locationFunction = getLocationFunction location
 
 araDress name location = getLocationFunction location name
+
+compareFullNames name1 name2 = compare fullName1 fullName2
+  where fullName1 = (fst name1) ++ (snd name1)
+        fullName2 = (fst name2) ++ (snd name2)
