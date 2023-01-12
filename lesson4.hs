@@ -53,11 +53,15 @@ nyOffice name = nameText ++ ": " ++ "P.O. box 789, New York, State of New York, 
 renoOffice name = nameText ++ " - " ++ "P.O. box 456, Reno, State of Nevada, 89523"
   where nameText = snd name
 
+waOffice name = "Dear " ++ nameText ++ " - " ++ "P.O. box 315, Washington, Columbia region, 256"
+  where nameText = (fst name) ++ " " ++ (snd name)
+
 getLocationFunction location = 
   case location of
     "ny" -> nyOffice
     "sf" -> sfOffice
     "reno" -> renoOffice
+    "wa" -> waOffice
     _ -> (\name -> (fst name) ++ " " ++ (snd name))
 
 addressLetter name location = locationFunction name
