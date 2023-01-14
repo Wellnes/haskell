@@ -25,3 +25,16 @@ genResourseApiRequestBuilder hostBuilder apiKey resourse =
      (\id -> hostBuilder apiKey resourse id)
 
 rExampleUrlBuilder = genResourseApiRequestBuilder exampleUrlBuilder "1337hAsk3ll" "book"
+
+add4 a b c d = a + b + c + d
+
+addXto3 x = (\b c d -> add4 x b c d)
+
+genApiIdBuilder  =  getRequestUrl "http://example.com" 
+                                  "1337hAsk3ll"
+                                   "book" 
+
+gen2ApiIdBuilder = (\id -> getRequestUrl "http://example.com"
+                                         "1337hAsk3ll"
+                                         "book"
+                                         id)
