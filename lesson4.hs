@@ -14,7 +14,7 @@ double n = n * 2
 
 square n = n ^ 2
 
-names = [ ("Ian","Curtis"),("Bernard","Sumner"),("Peter","Hook"),("Stephen","Morris") ]
+--names = [("Ian","Curtis"),("Bernard","Sumner"),("Peter","Hook"),("Stephen","Morris")names = [ ("Ian","Curtis"),("Bernard","Sumner"),("Peter","Hook"),("Stephen","Morris") ]
 
 compareLastNames name1 name2 = if lastName1 > lastName2
                                then GT
@@ -29,12 +29,6 @@ compareLastNames name1 name2 = if lastName1 > lastName2
         lastName2 = snd name2
         firstName1 = fst name1
         firstName2 = fst name2
-
-compareAllNames name1 name2 = 
-    if result == EQ
-    then compare (fst name1) (fst name2)
-    else result
-  where result = compare (snd name1) (snd name2)
 
 --addressLeter name location = nameText ++ " - " ++ location
 --  where nameText = (fst name) ++ " " ++ (snd name)
@@ -53,15 +47,11 @@ nyOffice name = nameText ++ ": " ++ "P.O. box 789, New York, State of New York, 
 renoOffice name = nameText ++ " - " ++ "P.O. box 456, Reno, State of Nevada, 89523"
   where nameText = snd name
 
-waOffice name = "Dear " ++ nameText ++ " - " ++ "P.O. box 315, Washington, Columbia region, 256"
-  where nameText = (fst name) ++ " " ++ (snd name)
-
 getLocationFunction location = 
   case location of
     "ny" -> nyOffice
     "sf" -> sfOffice
     "reno" -> renoOffice
-    "wa" -> waOffice
     _ -> (\name -> (fst name) ++ " " ++ (snd name))
 
 addressLetter name location = locationFunction name
@@ -69,6 +59,39 @@ addressLetter name location = locationFunction name
 
 araDress name location = getLocationFunction location name
 
-compareFullNames name1 name2 = compare fullName1 fullName2
-  where fullName1 = (fst name1) ++ (snd name1)
-        fullName2 = (fst name2) ++ (snd name2)
+flipBinaryArgs binaryFunction = (\x y -> binaryFunction y x)
+
+addressLetterV2 = flipBinaryArgs addressLetter
+
+addressLetterNY = addressLetterV2 "ny"
+
+subtract2 = flip (-) 2  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
