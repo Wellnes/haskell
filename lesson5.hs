@@ -44,3 +44,5 @@ gen2ApiIdBuilder = (\id -> getRequestUrl "http://example.com"
                                          "1337hAsk3ll"
                                          "book"
                                          id)
+
+binaryPartailApp f x = (\y -> f x y)
