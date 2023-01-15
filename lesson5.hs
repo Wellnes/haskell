@@ -8,6 +8,12 @@ ifEven f x = if even x
 
 genIfEvenX x = (\f -> ifEven f x)
 
+ifEvenInc = ifEven (\x -> x + 1) 
+
+ifEvenDouble = ifEven (\n -> n * 2)
+
+ifEvenSquare = ifEven (\n -> n ^ 2)
+
 getRequestUrl host apiKey resourse id = 
   host ++ "/" ++ resourse ++ "/" ++ id ++ "?token=" ++ apiKey
 
