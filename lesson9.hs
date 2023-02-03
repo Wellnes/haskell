@@ -16,3 +16,12 @@ myRemove test [] = []
 myRemove test (x:xs) = if test x
                        then myRemove test xs
                        else x:myRemove test xs 
+
+concatAll xs = foldl (++) "" xs
+
+myProduct xs = foldl (*) 1 xs
+
+sumOfSquares xs = foldl (+) 0 (map (^2) xs)
+
+rcons xs y = y:xs
+myReverse xs = foldl rcons [] xs
