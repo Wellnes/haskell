@@ -33,3 +33,6 @@ myFoldl f init (x:xs) = myFoldl f newInit xs
 myFoldr f init [] = init
 myFoldr f init (x:xs) = f x rightResult
   where rightResult = myFoldr f init xs
+
+myElem v myList = (length filtXs) > 0
+  where filtXs = filter ( == v) myList
